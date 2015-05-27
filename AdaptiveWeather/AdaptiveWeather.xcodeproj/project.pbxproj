@@ -13,6 +13,8 @@
 		432F3FB61B154D09003B443E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432F3FB51B154D09003B443E /* Images.xcassets */; };
 		432F3FB91B154D09003B443E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 432F3FB71B154D09003B443E /* LaunchScreen.xib */; };
 		432F3FC51B154D09003B443E /* AdaptiveWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432F3FC41B154D09003B443E /* AdaptiveWeatherTests.swift */; };
+		432F3FCF1B15F998003B443E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432F3FCE1B15F998003B443E /* CoreLocation.framework */; };
+		432F3FD11B15FD04003B443E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432F3FD01B15FD04003B443E /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		432F3FBE1B154D09003B443E /* AdaptiveWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		432F3FC31B154D09003B443E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		432F3FC41B154D09003B443E /* AdaptiveWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveWeatherTests.swift; sourceTree = "<group>"; };
+		432F3FCE1B15F998003B443E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		432F3FD01B15FD04003B443E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				432F3FCF1B15F998003B443E /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +64,7 @@
 		432F3FA01B154D09003B443E = {
 			isa = PBXGroup;
 			children = (
+				432F3FCE1B15F998003B443E /* CoreLocation.framework */,
 				432F3FAB1B154D09003B443E /* AdaptiveWeather */,
 				432F3FC11B154D09003B443E /* AdaptiveWeatherTests */,
 				432F3FAA1B154D09003B443E /* Products */,
@@ -79,6 +85,7 @@
 			children = (
 				432F3FAE1B154D09003B443E /* AppDelegate.swift */,
 				432F3FB01B154D09003B443E /* ViewController.swift */,
+				432F3FD01B15FD04003B443E /* SwiftyJSON.swift */,
 				432F3FB21B154D09003B443E /* Main.storyboard */,
 				432F3FB51B154D09003B443E /* Images.xcassets */,
 				432F3FB71B154D09003B443E /* LaunchScreen.xib */,
@@ -212,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				432F3FD11B15FD04003B443E /* SwiftyJSON.swift in Sources */,
 				432F3FB11B154D09003B443E /* ViewController.swift in Sources */,
 				432F3FAF1B154D09003B443E /* AppDelegate.swift in Sources */,
 			);

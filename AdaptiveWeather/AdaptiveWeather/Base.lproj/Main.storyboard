@@ -92,6 +92,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="temperatureLabel" destination="NJf-oP-fYX" id="hgQ-aQ-Ti9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
