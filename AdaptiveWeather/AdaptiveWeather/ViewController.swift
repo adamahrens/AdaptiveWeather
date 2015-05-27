@@ -15,6 +15,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     //MARK: IBOutlets
     @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var localityLabel: UILabel!
     
     //MARK: Private Variables
     private let locationManager = CLLocationManager()
@@ -63,13 +64,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let urlSession = NSURLSession.sharedSession()
             
             // Fetch the weather
-            urlSession.dataTaskWithRequest(request) { data, response, error in
-                let json = JSON(data: data)
-                let kelvin = json["main"]["temp"].stringValue
-                if let k = NSNumberFormatter().numberFromString(kelvin)?.doubleValue {
-                    // Convert to Fahrenheit
-                    let fahrenheit = ((k - 273.15) * 1.8) + 32.0
-                    self.temperatureLabel.text = "\(fahrenheit) ℉"
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            urlSession.dataTaskWithRequest(request) { [weak self] data, response, error in
+                if let strongSelf = self {
+                    let json = JSON(data: data)
+                    let kelvin = json["main"]["temp"].stringValue
+                    if let k = NSNumberFormatter().numberFromString(kelvin)?.doubleValue {
+                        // Convert to Fahrenheit
+                        let fahrenheit = ((k - 273.15) * 1.8) + 32.0
+
+                        dispatch_async(dispatch_get_main_queue(), {
+                            strongSelf.temperatureLabel.text = NSString(format:"%.1f ℉", fahrenheit) as String
+                        })
+                        
+                        // Reverse Geolocation for locality
+                        let geolocation = CLGeocoder()
+                        geolocation.reverseGeocodeLocation(location) { placemarks, error in
+                            if placemarks.count > 0 {
+                                if let placemark = placemarks.first as? CLPlacemark {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        strongSelf.localityLabel.text = placemark.locality
+                                        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                                    })
+                                }
+                            }
+                        }
+                    }
                 }
             }.resume()
         }

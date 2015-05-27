@@ -93,7 +93,8 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="temperatureLabel" destination="NJf-oP-fYX" id="hgQ-aQ-Ti9"/>
+                        <outlet property="localityLabel" destination="Mhb-wW-3TY" id="MB9-Zn-Jdd"/>
+                        <outlet property="temperatureLabel" destination="NJf-oP-fYX" id="Y3p-9f-59h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
