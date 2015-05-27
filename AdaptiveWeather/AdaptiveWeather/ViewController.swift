@@ -73,19 +73,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         // Convert to Fahrenheit
                         let fahrenheit = ((k - 273.15) * 1.8) + 32.0
 
-                        dispatch_async(dispatch_get_main_queue(), {
-                            strongSelf.temperatureLabel.text = NSString(format:"%.1f ℉", fahrenheit) as String
-                        })
+                        // Update UI
+                        NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: { [weak self] in
+                            if let strongSelf = self {
+                                strongSelf.temperatureLabel.text = NSString(format:"%.1f ℉", fahrenheit) as String
+                            }
+                        }))
                         
                         // Reverse Geolocation for locality
                         let geolocation = CLGeocoder()
                         geolocation.reverseGeocodeLocation(location) { placemarks, error in
                             if placemarks.count > 0 {
                                 if let placemark = placemarks.first as? CLPlacemark {
-                                    dispatch_async(dispatch_get_main_queue(), {
-                                        strongSelf.localityLabel.text = placemark.locality
-                                        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                                    })
+                                    // Update UI
+                                    NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: { [weak self] in
+                                        if let strongSelf = self {
+                                            strongSelf.localityLabel.text = placemark.locality
+                                            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                                        }
+                                    }))
                                 }
                             }
                         }
