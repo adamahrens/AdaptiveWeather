@@ -23,17 +23,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3TW-QW-pGp" userLabel="TextContainer">
                                 <rect key="frame" x="0.0" y="237" width="600" height="363"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saint Paul" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhb-wW-3TY">
-                                        <rect key="frame" x="-8" y="10" width="616" height="177"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saint Paul" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mhb-wW-3TY">
+                                        <rect key="frame" x="0.0" y="10" width="600" height="177"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="150"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="90"/>
+                                        </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="68 C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJf-oP-fYX">
-                                        <rect key="frame" x="38" y="58" width="523.5" height="295"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="68 C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NJf-oP-fYX">
+                                        <rect key="frame" x="-0.5" y="58" width="600.5" height="295"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="250"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="150"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.47969848506836937" green="0.57745793424277603" blue="0.74064263657765728" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -41,6 +47,8 @@
                                     <constraint firstItem="Mhb-wW-3TY" firstAttribute="top" secondItem="3TW-QW-pGp" secondAttribute="top" constant="10" id="XdR-ee-OZ2"/>
                                     <constraint firstAttribute="centerX" secondItem="NJf-oP-fYX" secondAttribute="centerX" id="dM3-Qt-dyt"/>
                                     <constraint firstAttribute="bottom" secondItem="NJf-oP-fYX" secondAttribute="bottom" constant="10" id="gUJ-qd-2h7"/>
+                                    <constraint firstAttribute="width" secondItem="NJf-oP-fYX" secondAttribute="width" id="oWg-bR-9H3"/>
+                                    <constraint firstAttribute="width" secondItem="Mhb-wW-3TY" secondAttribute="width" id="pKX-NN-bUh"/>
                                     <constraint firstAttribute="centerX" secondItem="Mhb-wW-3TY" secondAttribute="centerX" id="qyM-9b-J0l"/>
                                 </constraints>
                             </view>
