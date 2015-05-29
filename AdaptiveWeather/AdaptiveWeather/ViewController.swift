@@ -72,13 +72,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     if let k = NSNumberFormatter().numberFromString(kelvin)?.doubleValue {
                         // Convert to Fahrenheit
                         let fahrenheit = ((k - 273.15) * 1.8) + 32.0
-
-                        // Update UI
-                        NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: { [weak self] in
-                            if let strongSelf = self {
-                                strongSelf.temperatureLabel.text = NSString(format:"%.1f ℉", fahrenheit) as String
-                            }
-                        }))
                         
                         // Reverse Geolocation for locality
                         let geolocation = CLGeocoder()
@@ -88,6 +81,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                                     // Update UI
                                     NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: { [weak self] in
                                         if let strongSelf = self {
+                                            strongSelf.temperatureLabel.text = NSString(format:"%.1f ℉", fahrenheit) as String
                                             strongSelf.localityLabel.text = placemark.locality
                                             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                                         }
