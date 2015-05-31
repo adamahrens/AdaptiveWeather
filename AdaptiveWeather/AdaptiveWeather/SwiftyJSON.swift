@@ -25,13 +25,13 @@ import Foundation
 // MARK: - Error
 
 ///Error domain
-public let ErrorDomain: String! = "SwiftyJSONErrorDomain"
+public let ErrorDomain           = "SwiftyJSONErrorDomain"
 
 ///Error code
-public let ErrorUnsupportedType: Int! = 999
-public let ErrorIndexOutOfBounds: Int! = 900
-public let ErrorWrongType: Int! = 901
-public let ErrorNotExist: Int! = 500
+public let ErrorUnsupportedType  = 999
+public let ErrorIndexOutOfBounds = 900
+public let ErrorWrongType        = 901
+public let ErrorNotExist         = 500
 
 // MARK: - JSON Type
 
