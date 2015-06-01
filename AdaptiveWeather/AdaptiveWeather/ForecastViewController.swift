@@ -13,11 +13,18 @@ class ForecastViewController: UIViewController, UICollectionViewDataSource {
 
     typealias Location = CLLocation
     
+    //MARK: IBOutlets
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    //MARK: Private Properties
     private var currentLocation: Location? {
         didSet {
             fetchLatestForecastData()
         }
     }
+    
+    //MARK: Model
+    var dataSource = [Forecast]()
     
     //MARK: View Lifecycle
     override func viewDidLoad() {
@@ -36,17 +43,7 @@ class ForecastViewController: UIViewController, UICollectionViewDataSource {
             currentLocation = updatedLocation
         }
     }
-    
-    //MARK: UICollectionViewDataSource
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DailyWeatherCollectionViewCell", forIndexPath: indexPath) as! DailyWeatherCollectionViewCell
-        return cell
-    }
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
+
     //MARK: Private
     func fetchLatestForecastData() {
         //http://api.openweathermap.org/data/2.5/forecast/daily?lat=35&lon=139&cnt=10&mode=json
@@ -55,14 +52,36 @@ class ForecastViewController: UIViewController, UICollectionViewDataSource {
             let request = NSURLRequest(URL: url!)
             let urlSession = NSURLSession.sharedSession()
             
-            // Fetch the weather
+            // Fetch the forecast
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             urlSession.dataTaskWithRequest(request) { [weak self] data, response, error in
                 if let strongSelf = self {
                     let json = JSON(data: data)
+                    let numberOfForecasts = json["list"].arrayValue.count
+                    
+                    strongSelf.dataSource.removeAll(keepCapacity: true)
+                    for (key, subJSON) in json["list"] {
+                        let forecast = Forecast(json: subJSON)
+                        strongSelf.dataSource.append(forecast)
+                    }
+                    
+                    //Reload Data
+                    strongSelf.collectionView.reloadData()
                 }
             }.resume()
         }
+    }
+}
 
+//MARK: UICollectionViewDataSource Extension
+extension ForecastViewController: UICollectionViewDataSource {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DailyWeatherCollectionViewCell", forIndexPath: indexPath) as! DailyWeatherCollectionViewCell
+        cell.configureCellWithForecast(dataSource[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataSource.count
     }
 }
