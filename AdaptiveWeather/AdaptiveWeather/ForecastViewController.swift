@@ -45,8 +45,7 @@ class ForecastViewController: UIViewController, UICollectionViewDataSource {
     }
 
     //MARK: Private
-    func fetchLatestForecastData() {
-        //http://api.openweathermap.org/data/2.5/forecast/daily?lat=35&lon=139&cnt=10&mode=json
+    private func fetchLatestForecastData() {
         if let location = currentLocation {
             let url = NSURL(string: "http://api.openweathermap.org/data/2.5/forecast/daily?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&cnt=10&mode=json")
             let request = NSURLRequest(URL: url!)

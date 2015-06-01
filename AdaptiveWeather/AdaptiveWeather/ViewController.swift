@@ -28,10 +28,28 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newLocation:", name: "NewLocationNotification", object: nil)
+        
+        configureTraitOverrideForSize(view.bounds.size)
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        configureTraitOverrideForSize(size)
     }
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    // Used to prevent CollectionView from showing on iPhone
+    private func configureTraitOverrideForSize(size: CGSize) {
+        var traitOverride: UITraitCollection?
+        if size.height < 1000 {
+            traitOverride = UITraitCollection(verticalSizeClass: .Compact)
+        }
+        
+        for vc in childViewControllers as! [UIViewController] {
+            setOverrideTraitCollection(traitOverride, forChildViewController: vc)
+        }
     }
     
     //MARK: NSNotifications
