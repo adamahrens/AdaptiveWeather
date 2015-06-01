@@ -9,16 +9,14 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
-
+class ViewController: UIViewController {
+    
     typealias Location = CLLocation
     
     //MARK: IBOutlets
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var localityLabel: UILabel!
     
-    //MARK: Private Variables
-    private let locationManager = CLLocationManager()
     private var currentLocation: Location? {
         didSet {
             fetchLatestWeatherData()
@@ -29,31 +27,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Get Location Updates
-        locationManager.delegate = self
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "newLocation:", name: "NewLocationNotification", object: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        // Ask for permission if necessary
-        let currentStatus = CLLocationManager.authorizationStatus()
-        if currentStatus == .Restricted || currentStatus == .Denied || currentStatus == .NotDetermined {
-            locationManager.requestWhenInUseAuthorization()
-        } else {
-            locationManager.startUpdatingLocation()
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    //MARK: NSNotifications
+    func newLocation(notification: NSNotification) {
+        if let updatedLocation = notification.object as? Location {
+            currentLocation = updatedLocation
         }
-    }
-    
-    //MARK: CLLocationManagerDelegate
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if status == .AuthorizedWhenInUse {
-            locationManager.startUpdatingLocation()
-        }
-    }
-    
-    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
-        newLocation
-        currentLocation = newLocation
-        locationManager.stopUpdatingLocation()
     }
     
     //MARK: Helpers

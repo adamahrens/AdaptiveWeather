@@ -16,6 +16,8 @@
 		432F3FCF1B15F998003B443E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432F3FCE1B15F998003B443E /* CoreLocation.framework */; };
 		432F3FD11B15FD04003B443E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432F3FD01B15FD04003B443E /* SwiftyJSON.swift */; };
 		43E0B8DB1B1BC0BC00E15311 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0B8DA1B1BC0BC00E15311 /* ForecastViewController.swift */; };
+		43E0B8DD1B1BE13600E15311 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0B8DC1B1BE13600E15311 /* LocationManager.swift */; };
+		43E0B8DF1B1BF32B00E15311 /* DailyWeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0B8DE1B1BF32B00E15311 /* DailyWeatherCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		432F3FCE1B15F998003B443E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		432F3FD01B15FD04003B443E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		43E0B8DA1B1BC0BC00E15311 /* ForecastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
+		43E0B8DC1B1BE13600E15311 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		43E0B8DE1B1BF32B00E15311 /* DailyWeatherCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyWeatherCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +90,11 @@
 			isa = PBXGroup;
 			children = (
 				432F3FAE1B154D09003B443E /* AppDelegate.swift */,
+				43E0B8DC1B1BE13600E15311 /* LocationManager.swift */,
 				43E0B8DA1B1BC0BC00E15311 /* ForecastViewController.swift */,
 				432F3FB01B154D09003B443E /* ViewController.swift */,
 				432F3FD01B15FD04003B443E /* SwiftyJSON.swift */,
+				43E0B8DE1B1BF32B00E15311 /* DailyWeatherCollectionViewCell.swift */,
 				432F3FB21B154D09003B443E /* Main.storyboard */,
 				432F3FB51B154D09003B443E /* Images.xcassets */,
 				432F3FB71B154D09003B443E /* LaunchScreen.xib */,
@@ -223,7 +229,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				432F3FD11B15FD04003B443E /* SwiftyJSON.swift in Sources */,
+				43E0B8DF1B1BF32B00E15311 /* DailyWeatherCollectionViewCell.swift in Sources */,
 				43E0B8DB1B1BC0BC00E15311 /* ForecastViewController.swift in Sources */,
+				43E0B8DD1B1BE13600E15311 /* LocationManager.swift in Sources */,
 				432F3FB11B154D09003B443E /* ViewController.swift in Sources */,
 				432F3FAF1B154D09003B443E /* AppDelegate.swift in Sources */,
 			);
