@@ -45,12 +45,24 @@
                                 <color key="backgroundColor" red="0.47969848506836937" green="0.57745793424277603" blue="0.74064263657765728" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Mhb-wW-3TY" firstAttribute="top" secondItem="3TW-QW-pGp" secondAttribute="top" constant="10" id="XdR-ee-OZ2"/>
+                                    <constraint firstItem="Mhb-wW-3TY" firstAttribute="top" secondItem="3TW-QW-pGp" secondAttribute="top" constant="100" id="ZDd-8X-Qsw"/>
                                     <constraint firstAttribute="centerX" secondItem="NJf-oP-fYX" secondAttribute="centerX" id="dM3-Qt-dyt"/>
                                     <constraint firstAttribute="bottom" secondItem="NJf-oP-fYX" secondAttribute="bottom" constant="10" id="gUJ-qd-2h7"/>
                                     <constraint firstAttribute="width" secondItem="NJf-oP-fYX" secondAttribute="width" id="oWg-bR-9H3"/>
                                     <constraint firstAttribute="width" secondItem="Mhb-wW-3TY" secondAttribute="width" id="pKX-NN-bUh"/>
                                     <constraint firstAttribute="centerX" secondItem="Mhb-wW-3TY" secondAttribute="centerX" id="qyM-9b-J0l"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ZDd-8X-Qsw"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <exclude reference="XdR-ee-OZ2"/>
+                                        <include reference="ZDd-8X-Qsw"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.5725490196078431" green="0.75686274509803919" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
