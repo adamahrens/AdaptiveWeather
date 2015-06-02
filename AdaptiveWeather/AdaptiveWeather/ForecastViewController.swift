@@ -54,19 +54,17 @@ class ForecastViewController: UIViewController, UICollectionViewDataSource {
             // Fetch the forecast
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             urlSession.dataTaskWithRequest(request) { [weak self] data, response, error in
-                if let strongSelf = self {
-                    let json = JSON(data: data)
-                    let numberOfForecasts = json["list"].arrayValue.count
-                    
-                    strongSelf.dataSource.removeAll(keepCapacity: true)
-                    for (key, subJSON) in json["list"] {
-                        let forecast = Forecast(json: subJSON)
-                        strongSelf.dataSource.append(forecast)
-                    }
-                    
-                    //Reload Data
-                    strongSelf.collectionView.reloadData()
+                let json = JSON(data: data)
+                let numberOfForecasts = json["list"].arrayValue.count
+                
+                self?.dataSource.removeAll(keepCapacity: true)
+                for (key, subJSON) in json["list"] {
+                    let forecast = Forecast(json: subJSON)
+                    self?.dataSource.append(forecast)
                 }
+                
+                //Reload Data
+                self?.collectionView.reloadData()
             }.resume()
         }
     }

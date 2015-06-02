@@ -105,11 +105,9 @@ class ViewController: UIViewController {
                                 if let placemark = placemarks.first as? CLPlacemark {
                                     // Update UI
                                     NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: { [weak self] in
-                                        if let strongSelf = self {
-                                            strongSelf.temperatureLabel.text = NSString(format:"%.1f ℉", fahrenheit) as String
-                                            strongSelf.localityLabel.text = placemark.locality
-                                            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                                        }
+                                        self?.temperatureLabel.text = NSString(format:"%.1f ℉", fahrenheit) as String
+                                        self?.localityLabel.text = placemark.locality
+                                        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                                     }))
                                 }
                             }
