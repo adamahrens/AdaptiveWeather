@@ -19,6 +19,11 @@
 		43E0B8DB1B1BC0BC00E15311 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0B8DA1B1BC0BC00E15311 /* ForecastViewController.swift */; };
 		43E0B8DD1B1BE13600E15311 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0B8DC1B1BE13600E15311 /* LocationManager.swift */; };
 		43E0B8DF1B1BF32B00E15311 /* DailyWeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0B8DE1B1BF32B00E15311 /* DailyWeatherCollectionViewCell.swift */; };
+		43EABB951B1D28A2007D0D6F /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EABB941B1D28A2007D0D6F /* Reveal.framework */; };
+		43EABB971B1D291C007D0D6F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EABB961B1D291C007D0D6F /* libz.dylib */; };
+		43EABB991B1D2925007D0D6F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EABB981B1D2925007D0D6F /* CFNetwork.framework */; };
+		43EABB9B1B1D292F007D0D6F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EABB9A1B1D292F007D0D6F /* QuartzCore.framework */; };
+		43EABB9D1B1D293A007D0D6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EABB9C1B1D293A007D0D6F /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,11 @@
 		43E0B8DA1B1BC0BC00E15311 /* ForecastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 		43E0B8DC1B1BE13600E15311 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		43E0B8DE1B1BF32B00E15311 /* DailyWeatherCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyWeatherCollectionViewCell.swift; sourceTree = "<group>"; };
+		43EABB941B1D28A2007D0D6F /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		43EABB961B1D291C007D0D6F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		43EABB981B1D2925007D0D6F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		43EABB9A1B1D292F007D0D6F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		43EABB9C1B1D293A007D0D6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +65,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43EABB9D1B1D293A007D0D6F /* CoreGraphics.framework in Frameworks */,
+				43EABB9B1B1D292F007D0D6F /* QuartzCore.framework in Frameworks */,
+				43EABB991B1D2925007D0D6F /* CFNetwork.framework in Frameworks */,
+				43EABB971B1D291C007D0D6F /* libz.dylib in Frameworks */,
 				432F3FCF1B15F998003B443E /* CoreLocation.framework in Frameworks */,
+				43EABB951B1D28A2007D0D6F /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +87,11 @@
 		432F3FA01B154D09003B443E = {
 			isa = PBXGroup;
 			children = (
+				43EABB9C1B1D293A007D0D6F /* CoreGraphics.framework */,
+				43EABB9A1B1D292F007D0D6F /* QuartzCore.framework */,
+				43EABB981B1D2925007D0D6F /* CFNetwork.framework */,
+				43EABB961B1D291C007D0D6F /* libz.dylib */,
+				43EABB941B1D28A2007D0D6F /* Reveal.framework */,
 				432F3FCE1B15F998003B443E /* CoreLocation.framework */,
 				432F3FAB1B154D09003B443E /* AdaptiveWeather */,
 				432F3FC11B154D09003B443E /* AdaptiveWeatherTests */,
@@ -414,6 +434,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AdaptiveWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -424,6 +448,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AdaptiveWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

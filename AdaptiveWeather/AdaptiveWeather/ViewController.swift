@@ -17,6 +17,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var localityLabel: UILabel!
     
+    //MARK: NSLayoutConstraints
+    @IBOutlet weak var containerViewHeight: NSLayoutConstraint!
+    
+    //MARK: Private Vars
     private var currentLocation: Location? {
         didSet {
             fetchLatestWeatherData()
@@ -29,11 +33,11 @@ class ViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newLocation:", name: "NewLocationNotification", object: nil)
         
-        configureTraitOverrideForSize(view.bounds.size)
+        configureTraitOverrideForSize(view.bounds.size, withTransitionCoordinator: nil)
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        configureTraitOverrideForSize(size)
+        configureTraitOverrideForSize(size, withTransitionCoordinator: coordinator)
     }
     
     deinit {
@@ -41,10 +45,28 @@ class ViewController: UIViewController {
     }
     
     // Used to prevent CollectionView from showing on iPhone
-    private func configureTraitOverrideForSize(size: CGSize) {
+    private func configureTraitOverrideForSize(size: CGSize, withTransitionCoordinator: UIViewControllerTransitionCoordinator?) {
         var traitOverride: UITraitCollection?
+        var newContainerHeight = CGFloat(0.0)
         if size.height < 1000 {
             traitOverride = UITraitCollection(verticalSizeClass: .Compact)
+            // Need to adjust the layout constraint to shrink
+            newContainerHeight = 0
+        } else {
+            // Need to adjust the layout constraint to grow
+            newContainerHeight = 100
+        }
+        
+        if let coordinator = withTransitionCoordinator {
+            // Then lets animate
+            coordinator.animateAlongsideTransition({ (coordinatorContext: UIViewControllerTransitionCoordinatorContext!) in
+                self.containerViewHeight.constant = newContainerHeight
+                self.view.setNeedsDisplay()
+                }, completion: nil)
+        } else {
+            // Just set the constraint
+            containerViewHeight.constant = newContainerHeight
+            view.setNeedsDisplay()
         }
         
         for vc in childViewControllers as! [UIViewController] {
