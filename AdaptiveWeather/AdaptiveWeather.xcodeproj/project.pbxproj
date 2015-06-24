@@ -53,7 +53,7 @@
 		43E0B8DA1B1BC0BC00E15311 /* ForecastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 		43E0B8DC1B1BE13600E15311 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		43E0B8DE1B1BF32B00E15311 /* DailyWeatherCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyWeatherCollectionViewCell.swift; sourceTree = "<group>"; };
-		43EABB941B1D28A2007D0D6F /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		43EABB941B1D28A2007D0D6F /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = ../Reveal.framework; sourceTree = "<group>"; };
 		43EABB961B1D291C007D0D6F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		43EABB981B1D2925007D0D6F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		43EABB9A1B1D292F007D0D6F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -87,12 +87,6 @@
 		432F3FA01B154D09003B443E = {
 			isa = PBXGroup;
 			children = (
-				43EABB9C1B1D293A007D0D6F /* CoreGraphics.framework */,
-				43EABB9A1B1D292F007D0D6F /* QuartzCore.framework */,
-				43EABB981B1D2925007D0D6F /* CFNetwork.framework */,
-				43EABB961B1D291C007D0D6F /* libz.dylib */,
-				43EABB941B1D28A2007D0D6F /* Reveal.framework */,
-				432F3FCE1B15F998003B443E /* CoreLocation.framework */,
 				432F3FAB1B154D09003B443E /* AdaptiveWeather */,
 				432F3FC11B154D09003B443E /* AdaptiveWeatherTests */,
 				432F3FAA1B154D09003B443E /* Products */,
@@ -116,6 +110,7 @@
 				438351891B1C95FA0087E16C /* Model */,
 				4383518A1B1C96010087E16C /* ViewController */,
 				4383518B1B1C960E0087E16C /* Vendor */,
+				432F3FB51B154D09003B443E /* Images.xcassets */,
 				4383518D1B1C962D0087E16C /* Storyboard */,
 				432F3FAC1B154D09003B443E /* Supporting Files */,
 			);
@@ -125,7 +120,12 @@
 		432F3FAC1B154D09003B443E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				432F3FB51B154D09003B443E /* Images.xcassets */,
+				43EABB9C1B1D293A007D0D6F /* CoreGraphics.framework */,
+				43EABB9A1B1D292F007D0D6F /* QuartzCore.framework */,
+				43EABB981B1D2925007D0D6F /* CFNetwork.framework */,
+				43EABB961B1D291C007D0D6F /* libz.dylib */,
+				43EABB941B1D28A2007D0D6F /* Reveal.framework */,
+				432F3FCE1B15F998003B443E /* CoreLocation.framework */,
 				432F3FB71B154D09003B443E /* LaunchScreen.xib */,
 				432F3FAD1B154D09003B443E /* Info.plist */,
 			);
