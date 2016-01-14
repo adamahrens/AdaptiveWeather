@@ -31,13 +31,13 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     //MARK: CLLocationManagerDelegate
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedWhenInUse {
             locationManager.startUpdatingLocation()
         }
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
+    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         newLocation
          NSNotificationCenter.defaultCenter().postNotificationName("NewLocationNotification", object: newLocation)
         locationManager.stopUpdatingLocation()

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Forecast: Printable {
+struct Forecast: CustomStringConvertible {
     
     var day: String!
     var dayOfWeek: String!

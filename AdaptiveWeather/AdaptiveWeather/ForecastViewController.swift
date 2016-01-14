@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ForecastViewController: UIViewController, UICollectionViewDataSource {
+class ForecastViewController: UIViewController {
 
     typealias Location = CLLocation
     
@@ -54,11 +54,13 @@ class ForecastViewController: UIViewController, UICollectionViewDataSource {
             // Fetch the forecast
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             urlSession.dataTaskWithRequest(request) { [weak self] data, response, error in
-                let json = JSON(data: data)
-                let numberOfForecasts = json["list"].arrayValue.count
+                guard let data = data else {
+                    return
+                }
                 
+                let json = JSON(data: data)
                 self?.dataSource.removeAll(keepCapacity: true)
-                for (key, subJSON) in json["list"] {
+                for (_, subJSON) in json["list"] {
                     let forecast = Forecast(json: subJSON)
                     self?.dataSource.append(forecast)
                 }

@@ -14,6 +14,54 @@
       "idiom" : "universal",
       "scale" : "3x",
       "filename" : "Clear@3x.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "heightClass" : "regular"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "heightClass" : "regular"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "heightClass" : "regular"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "widthClass" : "compact"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "widthClass" : "compact"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "widthClass" : "compact"
+    },
+    {
+      "heightClass" : "regular",
+      "idiom" : "universal",
+      "widthClass" : "compact",
+      "scale" : "1x"
+    },
+    {
+      "heightClass" : "regular",
+      "idiom" : "universal",
+      "widthClass" : "compact",
+      "scale" : "2x"
+    },
+    {
+      "heightClass" : "regular",
+      "idiom" : "universal",
+      "widthClass" : "compact",
+      "scale" : "3x"
     }
   ],
   "info" : {

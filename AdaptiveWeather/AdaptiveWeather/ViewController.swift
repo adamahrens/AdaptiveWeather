@@ -69,7 +69,7 @@ class ViewController: UIViewController {
             view.setNeedsDisplay()
         }
         
-        for vc in childViewControllers as! [UIViewController] {
+        for vc in childViewControllers {
             setOverrideTraitCollection(traitOverride, forChildViewController: vc)
         }
     }
@@ -90,27 +90,28 @@ class ViewController: UIViewController {
             
             // Fetch the weather
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-            urlSession.dataTaskWithRequest(request) { [weak self] data, response, error in
-                if let strongSelf = self {
-                    let json = JSON(data: data)
-                    let kelvin = json["main"]["temp"].stringValue
-                    if let k = NSNumberFormatter().numberFromString(kelvin)?.doubleValue {
-                        // Convert to Fahrenheit
-                        let fahrenheit = ((k - 273.15) * 1.8) + 32.0
-                        
-                        // Reverse Geolocation for locality
-                        let geolocation = CLGeocoder()
-                        geolocation.reverseGeocodeLocation(location) { placemarks, error in
-                            if placemarks.count > 0 {
-                                if let placemark = placemarks.first as? CLPlacemark {
-                                    // Update UI
-                                    NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: { [weak self] in
-                                        self?.temperatureLabel.text = NSString(format:"%.1f ℉", fahrenheit) as String
-                                        self?.localityLabel.text = placemark.locality
-                                        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                                    }))
-                                }
-                            }
+            urlSession.dataTaskWithRequest(request) { [unowned self] data, response, error in
+                guard let data = data else {
+                    return
+                }
+                
+                let json = JSON(data: data)
+                let kelvin = json["main"]["temp"].stringValue
+                if let k = NSNumberFormatter().numberFromString(kelvin)?.doubleValue {
+                    // Convert to Fahrenheit
+                    let fahrenheit = ((k - 273.15) * 1.8) + 32.0
+                    
+                    // Reverse Geolocation for locality
+                    let geolocation = CLGeocoder()
+                    geolocation.reverseGeocodeLocation(location) { placemarks, error in
+                        guard let placemarks = placemarks else { return }
+                        if let placemark = placemarks.first where placemarks.count > 0 {
+                            // Update UI
+                            NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: { [weak self] in
+                                self?.temperatureLabel.text = NSString(format:"%.1f ℉", fahrenheit) as String
+                                self?.localityLabel.text = placemark.locality
+                                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                                }))
                         }
                     }
                 }
