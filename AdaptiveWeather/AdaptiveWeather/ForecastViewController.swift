@@ -30,7 +30,7 @@ class ForecastViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "newLocation:", name: "NewLocationNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ForecastViewController.newLocation(_:)), name: "NewLocationNotification", object: nil)
     }
     
     deinit {
